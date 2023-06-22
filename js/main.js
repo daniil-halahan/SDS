@@ -1,9 +1,9 @@
-$(document).ready(function(){
+$(document).ready(function () {
 	//IBG================================================
-	function ibg(){
-		$.each($('.ibg'), function(index, val) {
-			if($(this).find('img').length>0){
-				$(this).css('background-image','url("'+$(this).find('img').attr('src')+'")');
+	function ibg() {
+		$.each($('.ibg'), function (index, val) {
+			if ($(this).find('img').length > 0) {
+				$(this).css('background-image', 'url("' + $(this).find('img').attr('src') + '")');
 			}
 		});
 	}
@@ -33,7 +33,7 @@ $(document).ready(function(){
 	// });
 
 	//BURGER================================================================
-	$('.nav__burger').click(function(event) {
+	$('.nav__burger').click(function (event) {
 		$('.nav , .nav__burger').toggleClass('active');
 		$('.main').toggleClass('lock');
 		// $('.main').toggle().css({'overflow': 'hidden'});
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	});
 
 	//SPOILER==========================================================
-	$('.footer__title').click(function() {
+	$('.footer__title').click(function () {
 		$(this).toggleClass('active').next().slideToggle(300);
 	});
 
@@ -52,37 +52,37 @@ $(document).ready(function(){
 	console.log(position + " " + $('.main').scrollTop());
 	function fullScroll() {
 		let scroll = $('.main').scrollTop();
-	    if(scroll > position && position == 0) {
-	    	console.log(position + " " + scroll);
-	    	$('.main').animate({
-                scrollTop: $('.services').offset().top
-            }, 500);
-	    } //else if (scroll < position && position == ($('.header').height() - 2)) {
-	    // 	$('.main').animate({
-	    //         scrollTop: $('.header').offset().top
-	    //     }, 500);
-	    // }
-	    position = scroll;
+		if (scroll > position && position == 0) {
+			console.log(position + " " + scroll);
+			$('.main').animate({
+				scrollTop: $('.services').offset().top
+			}, 500);
+		} //else if (scroll < position && position == ($('.header').height() - 2)) {
+		// 	$('.main').animate({
+		//         scrollTop: $('.header').offset().top
+		//     }, 500);
+		// }
+		position = scroll;
 	}
 
-	//XZ CHTO==========================================================
+	//==========================================================
 	function xz() {
 		let topSearch = $('.nav__search').offset().top;
 		let leftSearch = $('.nav__search').offset().left;
-		$('.nav__btn').offset({ top:topSearch , left:leftSearch });
-		$('.nav__input').offset({ top:topSearch - 1 });
-	};xz();
-	$('.main, .nav__main').scroll(function() {
+		$('.nav__btn').offset({ top: topSearch, left: leftSearch });
+		$('.nav__input').offset({ top: topSearch - 1 });
+	}; xz();
+	$('.main, .nav__main').scroll(function () {
 		fullScroll();
 		xz();
-		$('.nav__search').css({ 'visibility' : 'visible' });
-		$('.nav__btn').css({ 'visibility' : 'hidden' });
-		$('.nav__input').css({ 'margin-left' : '-300%' });
+		$('.nav__search').css({ 'visibility': 'visible' });
+		$('.nav__btn').css({ 'visibility': 'hidden' });
+		$('.nav__input').css({ 'margin-left': '-300%' });
 	});
 	$('.nav__search').click(function () {
-		$(this).css({ 'visibility' : 'hidden' });
-		$('.nav__btn').css({ 'visibility' : 'visible' });
-		$('.nav__input').css({ 'margin-left' : '-6px' });
+		$(this).css({ 'visibility': 'hidden' });
+		$('.nav__btn').css({ 'visibility': 'visible' });
+		$('.nav__input').css({ 'margin-left': '-6px' });
 	});
 	$(document).click(function (mouse) {
 		let mX = mouse.pageX;
@@ -91,11 +91,11 @@ $(document).ready(function(){
 		let leftBtn = $('.nav__btn').offset().left;
 		let topInput = $('.nav__input').offset().top;
 		let leftInput = $('.nav__input').offset().left;
-		if(((mX < leftInput || mX > (leftInput + 300)) || (mY < topInput || mY > (topInput + 30))) &&
-		((mX < leftBtn || mX > (leftBtn + 28)) || (mY < topBtn || mY > (topBtn + 28)))) {
-			$('.nav__search').css({ 'visibility' : 'visible' });
-			$('.nav__btn').css({ 'visibility' : 'hidden' });
-			$('.nav__input').css({ 'margin-left' : '-300%' });
+		if (((mX < leftInput || mX > (leftInput + 300)) || (mY < topInput || mY > (topInput + 30))) &&
+			((mX < leftBtn || mX > (leftBtn + 28)) || (mY < topBtn || mY > (topBtn + 28)))) {
+			$('.nav__search').css({ 'visibility': 'visible' });
+			$('.nav__btn').css({ 'visibility': 'hidden' });
+			$('.nav__input').css({ 'margin-left': '-300%' });
 		}
 	});
 
